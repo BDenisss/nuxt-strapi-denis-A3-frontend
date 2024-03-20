@@ -3,7 +3,7 @@
 <template>
     <div class="players-page">
         <div class="card">
-            <DataTable :value="players" :paginator="true" :rows="10" dataKey="id" :filters.sync="filters" filterDisplay="menu" :loading="loading" responsiveLayout="scroll"
+            <DataTable :value="players" :paginator="true" :rows="4" dataKey="id" :filters.sync="filters" filterDisplay="menu" :loading="loading" responsiveLayout="scroll"
                 :globalFilterFields="['first_name', 'last_name', 'ranking', 'country']">
                 <template #header>
                     <div class="flex justify-content-between">

@@ -1,26 +1,25 @@
 
 <template>
     <div v-if="player" class="player-page">
-
-        <div class="player-container">
-                <div v-if="player.image" class="player-image">
-                    <img :src="player.image.url" :alt="`Image de ${player.first_name} ${player.last_name}`">
-                </div>
-
+        <div class="player-profile">
+            <div v-if="player.image" class="player-image">
+                <img :src="player.image.url" :alt="`Image de ${player.first_name} ${player.last_name}`">
+            </div>
             <div class="player-details">
-                <div>
-                    <h1>{{ player.first_name }} {{ player.last_name }}</h1>
-                </div>
-                <div>
-                    <p><strong>Âge :</strong> {{ player.age }}</p>
-                    <p><strong>Pays :</strong> {{ player.country }}</p>
-                    <p><strong>Classement :</strong> {{ player.ranking }}</p>
-                    <p><strong>Style :</strong> {{ player.style }}</p>
+                <h1 class="player-name">{{ player.first_name }} {{ player.last_name }}</h1>
+                <div class="info-section">
+                    <h2 class="player-ranking">World Ranking <span>#{{ player.ranking }}</span></h2>
+                    <div class="player-info">
+                        <div class="player-country"><img :src="player.country_player.url" :alt="`Flag of ${player.country}`">{{ player.country }}</div>
+                        <div class="player-age">Age: {{ player.age }}</div>
+                        <div class="player-style">Style: {{ player.style }}</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
 
 <script>
 export default {
@@ -76,4 +75,66 @@ h1 {
 .player-details p {
     margin: 5px 0; 
 }
+
+.player-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.player-profile {
+    display: flex;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.player-image img {
+    width: 300px;
+    height: auto;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+
+.player-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-name {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    text-align: start;
+}
+
+.info-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.player-ranking {
+    font-size: 1.5rem;
+    margin-right: 20px;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-country, .player-age, .player-style {
+    margin: 5px 0;
+}
+
+.player-country img {
+    width: 24px;
+    height: auto;
+    margin-right: 5px;
+}
+
+
 </style>
